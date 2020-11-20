@@ -1,4 +1,8 @@
 require 'telegram_bot'
+require './lib/fact.rb'
+require './lib/cuteness.rb'
+require './lib/geek_joke.rb'
+require './lib/star_wars_quote.rb'
 
 class Bot
   attr_reader :bot, :get_updates
@@ -20,10 +24,42 @@ class Bot
         case command
 
         when /start/i
-          instructions = ['Hi, Im EazyMacBot! type /help to see what I can do']
-          reply.text = "#{instructions.sample.capitalize},
-      #{message.from.first_name}!"
+          reply.text = 'Hi! I am EazyMacBot, type /help to see what I can do for you'
 
+        when /help/i
+          reply.text = "/fact :Gives you a random useless fact
+                    /geek_joke :Tells you a geeky joke,
+                    /star_quote :Gives you Star Wars quote to help you find the force,
+                    /cute_me :Your daily supply of cuteness in the form of a dog photo"
+      
+        when '/fact'
+          values = Fact.new
+          value = values.make_the_request
+          puts reply.text = "random useless fact :#{value['text']}"
+
+        when '/cute_me'
+          values = Cuteness.new
+              value = values.make_the_request
+              reply.text = "#{value['message']}. "
+
+        when '/star_quote'
+          values = StarQuote.new
+              value = values.make_the_request
+              reply.text = "#{value['starWarsQuote']}. "
+
+        when '/geek_joke'
+          values = GeekJoke.new
+              value = values.make_the_request
+              reply.text = "#{value['value']}."
+        
+        else
+          confusion = ['If I had facial expressions, You would see the confusion! type /help to see what I can do'],
+          reply.text = "#{confusion},
+          #{message.from.first_name}!"
+        end
+        puts "sending #{reply.text.inspect} to @#{message.from.username}"
+        reply.send_with(bot)
+      end
     end
   end
 end

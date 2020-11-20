@@ -13,7 +13,7 @@ class GeekJoke
   end
 
   def make_the_request
-    url = 'https://geek-jokes.sameerkumar.website/api'
+    url = 'https://api.chucknorris.io/jokes/random'
     uri = URI(url)
     response = Net::HTTP.get(uri)
     response = JSON.parse(response)

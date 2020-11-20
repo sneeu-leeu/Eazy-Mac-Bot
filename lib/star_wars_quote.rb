@@ -1,7 +1,7 @@
 require 'net/http'
 require 'json'
 
-class GeekJoke
+class StarQuote
   attr_reader :values
   def initialize
     @values = make_the_request
