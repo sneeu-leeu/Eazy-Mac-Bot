@@ -1,5 +1,6 @@
 # rubocop:disable Metrics/BlockLength
 # rubocop:disable Metrics/MethodLength
+# rubocop:disable Metrics/CyclomaticComplexity
 require 'telegram_bot'
 require './lib/fact'
 require './lib/cuteness'
@@ -69,3 +70,4 @@ class Bot
 end
 # rubocop:enable Metrics/BlockLength
 # rubocop:enable Metrics/MethodLength
+# rubocop:disable Metrics/CyclomaticComplexity
