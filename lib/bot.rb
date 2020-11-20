@@ -70,4 +70,4 @@ class Bot
 end
 # rubocop:enable Metrics/BlockLength
 # rubocop:enable Metrics/MethodLength
-# rubocop:disable Metrics/CyclomaticComplexity
+# rubocop:enable Metrics/CyclomaticComplexity
