@@ -1,3 +1,5 @@
+# rubocop:disable Metrics/BlockLength
+# rubocop:disable Metrics/MethodLength
 require 'telegram_bot'
 require './lib/fact'
 require './lib/cuteness'
@@ -15,8 +17,8 @@ class Bot
 
   private
 
-  def update # rubocop:todo Metrics/MethodLength
-    @bot.get_updates(fail_silently: true) do |message| # rubocop:todo Metrics/BlockLength
+  def update
+    @bot.get_updates(fail_silently: true) do |message|
       puts "@#{message.from.username}: #{message.text}"
       command = message.get_command_for(@bot)
 
@@ -65,3 +67,5 @@ class Bot
     end
   end
 end
+# rubocop:enable Metrics/BlockLength
+# rubocop:enable Metrics/MethodLength
