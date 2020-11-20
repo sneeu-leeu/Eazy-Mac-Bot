@@ -1,7 +1,7 @@
 require 'net/http'
 require 'json'
 
-class DogImg
+class GeekJoke
   attr_reader :values
   def initialize
     @values = make_the_request
@@ -13,7 +13,7 @@ class DogImg
   end
 
   def make_the_request
-    url = 'https://dog.ceo/api/breeds/image/random'
+    url = 'http://swquotesapi.digitaljedi.dk/api/SWQuote/RandomStarWarsQuote'
     uri = URI(url)
     response = Net::HTTP.get(uri)
     response = JSON.parse(response)
