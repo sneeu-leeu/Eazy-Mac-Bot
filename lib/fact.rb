@@ -3,6 +3,7 @@ require 'json'
 
 class Fact
   attr_reader :values
+
   def initialize
     @values = make_the_request
   end
@@ -16,7 +17,6 @@ class Fact
     url = 'https://uselessfacts.jsph.pl/random.json'
     uri = URI(url)
     response = Net::HTTP.get(uri)
-    response = JSON.parse(response)
-    response
+    JSON.parse(response)
   end
 end

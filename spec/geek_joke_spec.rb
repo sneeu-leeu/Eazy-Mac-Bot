@@ -1,4 +1,4 @@
-require_relative '../lib/geek_joke.rb'
+require_relative '../lib/geek_joke'
 
 describe GeekJoke do
   let(:fact) { GeekJoke.new }

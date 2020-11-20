@@ -3,6 +3,7 @@ require 'json'
 
 class Cuteness
   attr_reader :values
+
   def initialize
     @values = make_the_request
   end
@@ -16,7 +17,6 @@ class Cuteness
     url = 'https://dog.ceo/api/breeds/image/random'
     uri = URI(url)
     response = Net::HTTP.get(uri)
-    response = JSON.parse(response)
-    response
+    JSON.parse(response)
   end
 end

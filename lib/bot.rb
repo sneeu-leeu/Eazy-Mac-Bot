@@ -1,8 +1,8 @@
 require 'telegram_bot'
-require './lib/fact.rb'
-require './lib/cuteness.rb'
-require './lib/geek_joke.rb'
-require './lib/star_wars_quote.rb'
+require './lib/fact'
+require './lib/cuteness'
+require './lib/geek_joke'
+require './lib/star_wars_quote'
 
 class Bot
   attr_reader :bot, :get_updates
@@ -15,8 +15,8 @@ class Bot
 
   private
 
-  def update
-    @bot.get_updates(fail_silently: true) do |message|
+  def update # rubocop:todo Metrics/MethodLength
+    @bot.get_updates(fail_silently: true) do |message| # rubocop:todo Metrics/BlockLength
       puts "@#{message.from.username}: #{message.text}"
       command = message.get_command_for(@bot)
 
@@ -31,7 +31,7 @@ class Bot
                     /geek_joke :Tells you a geeky joke,
                     /star_quote :Gives you Star Wars quote to help you find the force,
                     /cute_me :Your daily supply of cuteness in the form of a dog photo"
-      
+
         when '/fact'
           values = Fact.new
           value = values.make_the_request
@@ -39,22 +39,24 @@ class Bot
 
         when '/cute_me'
           values = Cuteness.new
-              value = values.make_the_request
-              reply.text = "#{value['message']}. "
+          value = values.make_the_request
+          reply.text = "#{value['message']}. "
 
         when '/star_quote'
           values = StarQuote.new
-              value = values.make_the_request
-              reply.text = "#{value['starWarsQuote']}. "
+          value = values.make_the_request
+          reply.text = "#{value['starWarsQuote']}. "
 
         when '/geek_joke'
           values = GeekJoke.new
-              value = values.make_the_request
-              reply.text = "#{value['value']}."
-        
+          value = values.make_the_request
+          reply.text = "#{value['value']}."
+
         else
+          # rubocop:todo Lint/UselessAssignment
           confusion = ['If I had facial expressions, You would see the confusion! type /help to see what I can do'],
-          reply.text = "#{confusion},
+                      # rubocop:enable Lint/UselessAssignment
+                      reply.text = "#{confusion},
           #{message.from.first_name}!"
         end
         puts "sending #{reply.text.inspect} to @#{message.from.username}"

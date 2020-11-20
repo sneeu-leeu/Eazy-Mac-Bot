@@ -3,6 +3,7 @@ require 'json'
 
 class StarQuote
   attr_reader :values
+
   def initialize
     @values = make_the_request
   end
@@ -16,7 +17,6 @@ class StarQuote
     url = 'http://swquotesapi.digitaljedi.dk/api/SWQuote/RandomStarWarsQuote'
     uri = URI(url)
     response = Net::HTTP.get(uri)
-    response = JSON.parse(response)
-    response
+    JSON.parse(response)
   end
 end

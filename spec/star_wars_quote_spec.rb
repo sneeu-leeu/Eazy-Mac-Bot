@@ -1,4 +1,4 @@
-require_relative '../lib/star_wars_quote.rb'
+require_relative '../lib/star_wars_quote'
 
 describe StarQuote do
   let(:fact) { StarQuote.new }

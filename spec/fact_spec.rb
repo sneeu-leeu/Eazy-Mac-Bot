@@ -1,4 +1,4 @@
-require_relative '../lib/fact.rb'
+require_relative '../lib/fact'
 
 describe Fact do
   let(:fact) { Fact.new }

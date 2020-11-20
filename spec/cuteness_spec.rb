@@ -1,4 +1,4 @@
-require_relative '../lib/cuteness.rb'
+require_relative '../lib/cuteness'
 
 describe Cuteness do
   let(:img) { Cuteness.new }
