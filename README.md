@@ -9,9 +9,13 @@
 - Rubocop
 - VSCode
 
-<h2>Project Presentation Link</h2>
+## Commands Availible
 
-
+- /help : Shows availible commands
+- /fact : Generates random fact
+- /cute_me : Generates random dog breed image
+- /star_quote : Supplies somewhat inspirational starwars quote
+- /geek_joke : Supplies a geeky joke
 
 ## How to Install
 
