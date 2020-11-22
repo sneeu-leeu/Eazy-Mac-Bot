@@ -2,10 +2,10 @@
 # rubocop:disable Metrics/MethodLength
 # rubocop:disable Metrics/CyclomaticComplexity
 require 'telegram_bot'
-require_relative 'lib/fact'
-require_relative 'lib/geek_joke'
-require_relative 'lib/star_wars_quote'
-require_relative 'lib/cuteness'
+require_relative 'fact.rb'
+require_relative 'geek_joke.rb'
+require_relative 'star_wars_quote.rb'
+require_relative 'cuteness.rb'
 
 class Bot
   attr_reader :bot, :get_updates
