@@ -23,9 +23,9 @@
 - You can clone it using git clone command.
 After cloning the git folder you have to run:
 
-- Navigate to your telegram account
+- Navigate to your telegram account or create one [here](https://desktop.telegram.org/)
 
-- create a bot in Telegram.
+- create a bot in Telegram and talk to the [Botfather](https://core.telegram.org/bots) to generate yourself a Token. (click on the Botfather for more info)
 
 - get the token and replace it with the given token in bot.rb file.
 
