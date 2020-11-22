@@ -8,18 +8,18 @@ require './lib/geek_joke'
 require './lib/star_wars_quote'
 
 class Bot
-  attr_reader :bot, :get_updates
+  attr_reader :bot, :new_updates
 
   def initialize
     token = '1402298027:AAHBWwLSVVGmeZKi8Kmog5HgYja7VmK6WlY'
     @bot = TelegramBot.new(token: token)
-    @get_updates = update
+    @new_updates = update
   end
 
   private
 
   def update
-    @bot.get_updates(fail_silently: true) do |message|
+    @bot.new_updates(fail_silently: true) do |message|
       puts "@#{message.from.username}: #{message.text}"
       command = message.get_command_for(@bot)
 
@@ -56,11 +56,7 @@ class Bot
           reply.text = "#{value['value']}."
 
         else
-          # rubocop:todo Lint/UselessAssignment
-          confusion = ['If I had facial expressions, You would see the confusion! type /help to see what I can do'],
-                      # rubocop:enable Lint/UselessAssignment
-                      reply.text = "#{confusion},
-          #{message.from.first_name}!"
+          reply.text = 'If I had facial expressions, You would see the confusion! type /help to see what I can do'
         end
         puts "sending #{reply.text.inspect} to @#{message.from.username}"
         reply.send_with(bot)
