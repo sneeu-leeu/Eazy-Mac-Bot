@@ -1,4 +1,4 @@
-require './lib/bot'
+require_relative 'lib/bot'
 require 'rubygems'
 
 Bot.new
