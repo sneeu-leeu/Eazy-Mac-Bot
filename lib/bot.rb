@@ -8,18 +8,18 @@ require './lib/geek_joke'
 require './lib/star_wars_quote'
 
 class Bot
-  attr_reader :bot, :new_updates
+  attr_reader :bot, :get_updates
 
   def initialize
     token = '1402298027:AAHBWwLSVVGmeZKi8Kmog5HgYja7VmK6WlY'
     @bot = TelegramBot.new(token: token)
-    @new_updates = update
+    @get_updates = update
   end
 
   private
 
   def update
-    @bot.new_updates(fail_silently: true) do |message|
+    @bot.get_updates(fail_silently: true) do |message|
       puts "@#{message.from.username}: #{message.text}"
       command = message.get_command_for(@bot)
 
